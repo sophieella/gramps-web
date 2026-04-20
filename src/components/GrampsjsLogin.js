@@ -178,12 +178,13 @@ class GrampsjsLogin extends GrampsjsAppStateMixin(LitElement) {
   _renderLogin() {
     const localAuthDisabled =
       this.oidcConfig?.enabled && this.oidcConfig?.disable_local_auth
+    const adminLogin = window.location.pathname === '/login-admin'
 
     return html`
       <div id="login-container">
         <form id="login-form" @keydown="${this._handleLoginKey}">
           <h2>${this._('Log in to Gramps Web')}</h2>
-          ${localAuthDisabled
+          ${localAuthDisabled || (!adminLogin && this.oidcConfig?.enabled)
             ? ''
             : html`
                 <md-outlined-text-field
@@ -240,7 +241,8 @@ class GrampsjsLogin extends GrampsjsAppStateMixin(LitElement) {
               `}
           ${this.oidcConfig?.enabled &&
           this.oidcConfig?.providers &&
-          !localAuthDisabled
+          !localAuthDisabled &&
+          adminLogin
             ? html`<hr />`
             : ''}
           ${this.oidcConfig?.enabled && this.oidcConfig?.providers
@@ -283,7 +285,7 @@ class GrampsjsLogin extends GrampsjsAppStateMixin(LitElement) {
   }
 
   _getOIDCButtonText(providerId, providerName) {
-    return `${this._('Continue with %s', providerName)}`
+    return this._('Continue to sign in')
   }
 
   _credChanged(e) {
