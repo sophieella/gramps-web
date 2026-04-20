@@ -8,6 +8,16 @@ export const GrampsjsNewMediaMixin = superClass =>
   class extends superClass {
     renderForm() {
       return html`
+        <h4 class="label">${this._('Gramps ID')}</h4>
+        <p>
+          <grampsjs-form-string
+            fullwidth
+            id="gramps_id"
+            label="${this._('optional')}"
+            .appState="${this.appState}"
+          ></grampsjs-form-string>
+        </p>
+
         <h4 class="label">${this._('Title')}</h4>
         <p>
           <grampsjs-form-string
@@ -22,16 +32,6 @@ export const GrampsjsNewMediaMixin = superClass =>
         <p>
           <grampsjs-form-select-date id="date" .appState="${this.appState}">
           </grampsjs-form-select-date>
-        </p>
-
-        <h4 class="label">${this._('Gramps ID')}</h4>
-        <p>
-          <grampsjs-form-string
-            fullwidth
-            id="gramps_id"
-            label="${this._('optional')}"
-            .appState="${this.appState}"
-          ></grampsjs-form-string>
         </p>
 
         <div class="spacer"></div>

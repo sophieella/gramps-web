@@ -24,6 +24,16 @@ export const GrampsjsNewPersonMixin = superClass =>
 
     renderForm() {
       return html`
+        <h4 class="label">${this._('Gramps ID')}</h4>
+        <p>
+          <grampsjs-form-string
+            fullwidth
+            id="gramps_id"
+            label="${this._('optional')}"
+            .appState="${this.appState}"
+          ></grampsjs-form-string>
+        </p>
+
         <h4 class="label">${this._('Name')}</h4>
         <grampsjs-form-name
           id="primary-name"
@@ -83,16 +93,6 @@ export const GrampsjsNewPersonMixin = superClass =>
         ></grampsjs-form-select-object-list>
 
         ${this._renderCitationForm()} ${this._renderTagsForm()}
-
-        <h4 class="label">${this._('Gramps ID')}</h4>
-        <p>
-          <grampsjs-form-string
-            fullwidth
-            id="gramps_id"
-            label="${this._('optional')}"
-            .appState="${this.appState}"
-          ></grampsjs-form-string>
-        </p>
 
         <div class="spacer"></div>
         <grampsjs-form-private
