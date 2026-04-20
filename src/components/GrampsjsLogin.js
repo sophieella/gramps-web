@@ -136,6 +136,7 @@ class GrampsjsLogin extends GrampsjsAppStateMixin(LitElement) {
       credentials: {type: Object},
       tree: {type: String},
       oidcConfig: {type: Object},
+      _oidcConfigLoaded: {type: Boolean},
     }
   }
 
@@ -146,11 +147,13 @@ class GrampsjsLogin extends GrampsjsAppStateMixin(LitElement) {
     this.credentials = {}
     this.tree = ''
     this.oidcConfig = {}
+    this._oidcConfigLoaded = false
   }
 
   async connectedCallback() {
     super.connectedCallback()
     const config = await apiGetOIDCConfig()
+    this._oidcConfigLoaded = true
     if (!config.error) {
       this.oidcConfig = config
 
@@ -184,7 +187,9 @@ class GrampsjsLogin extends GrampsjsAppStateMixin(LitElement) {
       <div id="login-container">
         <form id="login-form" @keydown="${this._handleLoginKey}">
           <h2>${this._('Log in to Gramps Web')}</h2>
-          ${localAuthDisabled || (!adminLogin && this.oidcConfig?.enabled)
+          ${!this._oidcConfigLoaded ||
+          localAuthDisabled ||
+          (!adminLogin && this.oidcConfig?.enabled)
             ? ''
             : html`
                 <md-outlined-text-field
