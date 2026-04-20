@@ -61,7 +61,7 @@ export const GrampsjsNewNoteMixin = superClass =>
         ...(this.types?.custom?.note_types || []),
       ]
       return allTypes.filter(
-        t => !ALL_OBJECT_NOTE_TYPES.has(t) || t === objectNoteType,
+        t => !ALL_OBJECT_NOTE_TYPES.has(t) || t === objectNoteType
       )
     }
 

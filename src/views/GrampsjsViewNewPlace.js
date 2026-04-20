@@ -111,7 +111,7 @@ export class GrampsjsViewNewPlace extends GrampsjsViewNewObject {
 
   checkFormValidity() {
     const selectType = this.shadowRoot.querySelector(
-      'grampsjs-form-select-type',
+      'grampsjs-form-select-type'
     )
     this.isFormValid = selectType === null ? true : selectType.isValid()
     const placeName = this.shadowRoot.getElementById('place-name')

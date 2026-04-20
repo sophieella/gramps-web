@@ -12,7 +12,7 @@ import {clearDraftsWithPrefix} from '../api.js'
 import {GrampsjsNewObjectTagsMixin} from '../mixins/GrampsjsNewObjectTagsMixin.js'
 
 export class GrampsjsViewNewObject extends GrampsjsNewObjectTagsMixin(
-  GrampsjsView,
+  GrampsjsView
 ) {
   static get styles() {
     return [
@@ -75,7 +75,7 @@ export class GrampsjsViewNewObject extends GrampsjsNewObjectTagsMixin(
           'grampsjs-form-string',
           'grampsjs-form-upload',
           'grampsjs-form-name',
-        ].join(', '),
+        ].join(', ')
       )
       .forEach(element => element.reset())
     this.shadowRoot.querySelectorAll('mwc-textfield').forEach(element => {
@@ -89,7 +89,7 @@ export class GrampsjsViewNewObject extends GrampsjsNewObjectTagsMixin(
       if ('data' in data) {
         this.error = false
         const grampsId = data.data.filter(
-          obj => obj.new._class === this.objClass,
+          obj => obj.new._class === this.objClass
         )[0].new.gramps_id
 
         // Clear drafts after successful save
@@ -103,7 +103,7 @@ export class GrampsjsViewNewObject extends GrampsjsNewObjectTagsMixin(
             bubbles: true,
             composed: true,
             detail: {path: this._getItemPath(grampsId)},
-          }),
+          })
         )
         this._reset()
       } else if ('error' in data) {
@@ -215,7 +215,7 @@ export class GrampsjsViewNewObject extends GrampsjsNewObjectTagsMixin(
   disconnectedCallback() {
     this.removeEventListener(
       'formdata:changed',
-      this._handleFormData.bind(this),
+      this._handleFormData.bind(this)
     )
     super.disconnectedCallback()
   }
