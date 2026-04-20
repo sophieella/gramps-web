@@ -1,14 +1,12 @@
+import {clientsClaim} from 'workbox-core'
 import {precacheAndRoute, createHandlerBoundToURL} from 'workbox-precaching'
 import {registerRoute, NavigationRoute} from 'workbox-routing'
 import {CacheFirst} from 'workbox-strategies'
 import {CacheableResponsePlugin} from 'workbox-cacheable-response'
 import {ExpirationPlugin} from 'workbox-expiration'
 
-self.addEventListener('message', event => {
-  if (event.data && event.data.type === 'SKIP_WAITING') {
-    self.skipWaiting()
-  }
-})
+self.skipWaiting()
+clientsClaim()
 
 precacheAndRoute(self.__WB_MANIFEST)
 
