@@ -179,6 +179,9 @@ export class GrampsjsViewSettingsUser extends GrampsjsView {
         <md-select-option value="dark" ?selected="${theme === 'dark'}"
           >${this._('Dark')}</md-select-option
         >
+        <md-select-option value="violet" ?selected="${theme === 'violet'}"
+          >${this._('Violet')}</md-select-option
+        >
       </md-filled-select>
     `
   }
