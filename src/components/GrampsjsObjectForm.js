@@ -92,7 +92,7 @@ export class GrampsjsObjectForm extends GrampsjsAppStateMixin(LitElement) {
           'grampsjs-form-string',
           'grampsjs-form-upload',
           'grampsjs-form-name',
-        ].join(', ')
+        ].join(', '),
       )
       .forEach(element => element.reset())
     this.shadowRoot.querySelectorAll('mwc-textfield').forEach(element => {

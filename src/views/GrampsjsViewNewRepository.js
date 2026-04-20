@@ -91,7 +91,7 @@ export class GrampsjsViewNewRepository extends GrampsjsViewNewObject {
 
   checkFormValidity() {
     const selectType = this.shadowRoot.querySelector(
-      'grampsjs-form-select-type'
+      'grampsjs-form-select-type',
     )
     this.isFormValid = selectType === null ? true : selectType.isValid()
     const repoName = this.shadowRoot.getElementById('repository-name')
@@ -110,5 +110,5 @@ export class GrampsjsViewNewRepository extends GrampsjsViewNewObject {
 
 window.customElements.define(
   'grampsjs-view-new-repository',
-  GrampsjsViewNewRepository
+  GrampsjsViewNewRepository,
 )

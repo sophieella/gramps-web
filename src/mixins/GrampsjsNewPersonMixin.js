@@ -42,7 +42,7 @@ export const GrampsjsNewPersonMixin = superClass =>
                 }"
                 >${this._(this.gender[genderConst])}</mwc-list-item
               >
-            `
+            `,
           )}
         </mwc-select>
 

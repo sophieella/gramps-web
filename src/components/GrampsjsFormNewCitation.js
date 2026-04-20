@@ -65,7 +65,7 @@ class GrampsjsFormNewCitation extends GrampsjsObjectForm {
               }"
               >${this._(confidence[conf])}</mwc-list-item
             >
-          `
+          `,
         )}
       </mwc-select>
 
@@ -101,5 +101,5 @@ class GrampsjsFormNewCitation extends GrampsjsObjectForm {
 
 window.customElements.define(
   'grampsjs-form-new-citation',
-  GrampsjsFormNewCitation
+  GrampsjsFormNewCitation,
 )
