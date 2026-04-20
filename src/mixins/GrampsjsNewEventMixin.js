@@ -12,6 +12,16 @@ export const GrampsjsNewEventMixin = superClass =>
   class extends superClass {
     renderForm() {
       return html`
+        <h4 class="label">${this._('Gramps ID')}</h4>
+        <p>
+          <grampsjs-form-string
+            fullwidth
+            id="gramps_id"
+            label="${this._('optional')}"
+            .appState="${this.appState}"
+          ></grampsjs-form-string>
+        </p>
+
         <grampsjs-form-select-type
           required
           id="event-type"
@@ -50,16 +60,6 @@ export const GrampsjsNewEventMixin = superClass =>
         ></grampsjs-form-select-object-list>
 
         ${this._renderCitationForm()} ${this._renderTagsForm()}
-
-        <h4 class="label">${this._('Gramps ID')}</h4>
-        <p>
-          <grampsjs-form-string
-            fullwidth
-            id="gramps_id"
-            label="${this._('optional')}"
-            .appState="${this.appState}"
-          ></grampsjs-form-string>
-        </p>
 
         <div class="spacer"></div>
         <grampsjs-form-private

@@ -20,6 +20,16 @@ export class GrampsjsViewNewFamily extends GrampsjsViewNewObject {
     return html`
       <h2>${this._('New Family')}</h2>
 
+      <h4 class="label">${this._('Gramps ID')}</h4>
+      <p>
+        <grampsjs-form-string
+          fullwidth
+          id="gramps_id"
+          label="${this._('optional')}"
+          .appState="${this.appState}"
+        ></grampsjs-form-string>
+      </p>
+
       <h4 class="label">${this._('Father')}</h4>
 
       <grampsjs-form-select-object-list
@@ -61,16 +71,6 @@ export class GrampsjsViewNewFamily extends GrampsjsViewNewObject {
       </grampsjs-form-select-type>
 
       ${this._renderCitationForm()} ${this._renderTagsForm()}
-
-      <h4 class="label">${this._('Gramps ID')}</h4>
-      <p>
-        <grampsjs-form-string
-          fullwidth
-          id="gramps_id"
-          label="${this._('optional')}"
-          .appState="${this.appState}"
-        ></grampsjs-form-string>
-      </p>
 
       <div class="spacer"></div>
       <grampsjs-form-private

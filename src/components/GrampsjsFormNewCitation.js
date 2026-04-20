@@ -29,6 +29,16 @@ class GrampsjsFormNewCitation extends GrampsjsObjectForm {
 
   renderForm() {
     return html`
+      <h4 class="label">${this._('Gramps ID')}</h4>
+      <p>
+        <grampsjs-form-string
+          fullwidth
+          id="gramps_id"
+          label="${this._('optional')}"
+          .appState="${this.appState}"
+        ></grampsjs-form-string>
+      </p>
+
       <h4 class="label">${this._('Source')}</h4>
       <grampsjs-form-select-object-list
         fixedMenuPosition
@@ -68,16 +78,6 @@ class GrampsjsFormNewCitation extends GrampsjsObjectForm {
           `
         )}
       </mwc-select>
-
-      <h4 class="label">${this._('Gramps ID')}</h4>
-      <p>
-        <grampsjs-form-string
-          fullwidth
-          id="gramps_id"
-          label="${this._('optional')}"
-          .appState="${this.appState}"
-        ></grampsjs-form-string>
-      </p>
 
       <div class="spacer"></div>
       <grampsjs-form-private

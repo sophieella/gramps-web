@@ -33,6 +33,16 @@ export class GrampsjsViewNewSource extends GrampsjsViewNewObject {
     return html`
       <h2>${this._('New Source')}</h2>
 
+      <h4 class="label">${this._('Gramps ID')}</h4>
+        <p>
+          <grampsjs-form-string
+            fullwidth
+            id="gramps_id"
+            label="${this._('optional')}"
+            .appState="${this.appState}"
+          ></grampsjs-form-string>
+        </p>
+
       <h4 class="label">${this._('Title')}</h4>
       <p>
         <mwc-textfield
@@ -94,16 +104,6 @@ export class GrampsjsViewNewSource extends GrampsjsViewNewObject {
           </grampsjs-form-select-type>
         </div>
         ${this._renderTagsForm()}
-
-        <h4 class="label">${this._('Gramps ID')}</h4>
-        <p>
-          <grampsjs-form-string
-            fullwidth
-            id="gramps_id"
-            label="${this._('optional')}"
-            .appState="${this.appState}"
-          ></grampsjs-form-string>
-        </p>
 
         <div class="spacer"></div>
         <grampsjs-form-private

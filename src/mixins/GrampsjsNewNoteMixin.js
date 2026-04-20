@@ -67,6 +67,16 @@ export const GrampsjsNewNoteMixin = superClass =>
 
     renderForm() {
       return html`
+        <h4 class="label">${this._('Gramps ID')}</h4>
+        <p>
+          <grampsjs-form-string
+            fullwidth
+            id="gramps_id"
+            label="${this._('optional')}"
+            .appState="${this.appState}"
+          ></grampsjs-form-string>
+        </p>
+
         <p>
           <grampsjs-editor
             @formdata:changed="${this.handleEditor}"
@@ -89,16 +99,6 @@ export const GrampsjsNewNoteMixin = superClass =>
         </grampsjs-form-select-type>
 
         ${this._renderTagsForm()}
-
-        <h4 class="label">${this._('Gramps ID')}</h4>
-        <p>
-          <grampsjs-form-string
-            fullwidth
-            id="gramps_id"
-            label="${this._('optional')}"
-            .appState="${this.appState}"
-          ></grampsjs-form-string>
-        </p>
 
         <div class="spacer"></div>
         <grampsjs-form-private
