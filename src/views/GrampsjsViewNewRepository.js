@@ -12,6 +12,7 @@ import '../components/GrampsjsFormSelectObject.js'
 import '../components/GrampsjsFormObjectList.js'
 import '../components/GrampsjsFormSelectType.js'
 import '../components/GrampsjsFormPrivate.js'
+import '../components/GrampsjsFormString.js'
 
 export class GrampsjsViewNewRepository extends GrampsjsViewNewObject {
   constructor() {
@@ -49,6 +50,16 @@ export class GrampsjsViewNewRepository extends GrampsjsViewNewObject {
       </grampsjs-form-select-type>
 
       ${this._renderTagsForm()}
+
+      <h4 class="label">${this._('Gramps ID')}</h4>
+      <p>
+        <grampsjs-form-string
+          fullwidth
+          id="gramps_id"
+          label="${this._('optional')}"
+          .appState="${this.appState}"
+        ></grampsjs-form-string>
+      </p>
 
       <div class="spacer"></div>
       <grampsjs-form-private

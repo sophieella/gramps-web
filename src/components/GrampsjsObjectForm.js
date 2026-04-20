@@ -238,6 +238,7 @@ export class GrampsjsObjectForm extends GrampsjsAppStateMixin(LitElement) {
         'long',
         'call_number',
         'rel',
+        'gramps_id',
       ].includes(originalTarget.id)
     ) {
       this.data = {...this.data, [originalTarget.id]: e.detail.data}

@@ -24,6 +24,16 @@ export const GrampsjsNewMediaMixin = superClass =>
           </grampsjs-form-select-date>
         </p>
 
+        <h4 class="label">${this._('Gramps ID')}</h4>
+        <p>
+          <grampsjs-form-string
+            fullwidth
+            id="gramps_id"
+            label="${this._('optional')}"
+            .appState="${this.appState}"
+          ></grampsjs-form-string>
+        </p>
+
         <div class="spacer"></div>
         <grampsjs-form-private
           id="private"

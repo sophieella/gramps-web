@@ -3,6 +3,7 @@ import {html} from 'lit'
 import {GrampsjsViewNewObject} from './GrampsjsViewNewObject.js'
 import '../components/GrampsjsFormPrivate.js'
 import '../components/GrampsjsFormSelectObjectList.js'
+import '../components/GrampsjsFormString.js'
 
 const dataDefault = {_class: 'Family'}
 
@@ -60,6 +61,16 @@ export class GrampsjsViewNewFamily extends GrampsjsViewNewObject {
       </grampsjs-form-select-type>
 
       ${this._renderCitationForm()} ${this._renderTagsForm()}
+
+      <h4 class="label">${this._('Gramps ID')}</h4>
+      <p>
+        <grampsjs-form-string
+          fullwidth
+          id="gramps_id"
+          label="${this._('optional')}"
+          .appState="${this.appState}"
+        ></grampsjs-form-string>
+      </p>
 
       <div class="spacer"></div>
       <grampsjs-form-private

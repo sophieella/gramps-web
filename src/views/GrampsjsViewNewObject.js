@@ -226,9 +226,15 @@ export class GrampsjsViewNewObject extends GrampsjsNewObjectTagsMixin(
       this.data = {...this.data, private: e.detail.checked}
     }
     if (
-      ['author', 'pubinfo', 'abbrev', 'page', 'desc', 'description'].includes(
-        originalTarget.id
-      )
+      [
+        'author',
+        'pubinfo',
+        'abbrev',
+        'page',
+        'desc',
+        'description',
+        'gramps_id',
+      ].includes(originalTarget.id)
     ) {
       this.data = {...this.data, [originalTarget.id]: e.detail.data}
     }
