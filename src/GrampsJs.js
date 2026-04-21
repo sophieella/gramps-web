@@ -513,7 +513,10 @@ export class GrampsJs extends LitElement {
       if (this.appState.path.page === 'register') {
         return this._renderRegister()
       }
-      if (this.appState.path.page !== 'login') {
+      if (
+        this.appState.path.page !== 'login' &&
+        this.appState.path.page !== 'login-admin'
+      ) {
         window.history.pushState({}, '', 'login')
       }
       return this._renderLogin()
