@@ -902,6 +902,20 @@ export class GrampsJs extends LitElement {
   }
 
   _loadHomePersonInfo() {
+    // If no home person is set in localStorage, use the database default person.
+    // metadata.default_person is a handle — fetch the person to get their Gramps ID.
+    if (
+      !this.appState.settings.homePerson &&
+      this.appState.dbInfo?.default_person
+    ) {
+      const handle = this.appState.dbInfo.default_person
+      this.appState.apiGet(`/api/people/${handle}?profile=self`).then(data => {
+        if (data?.data?.gramps_id) {
+          this.appState.updateSettings({homePerson: data.data.gramps_id})
+        }
+      })
+      return
+    }
     const grampsId = this.appState.settings.homePerson
     if (!grampsId || grampsId === this._homePersonFetchingId) {
       return
